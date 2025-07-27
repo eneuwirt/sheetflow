@@ -10,7 +10,7 @@ TableLogic is integrated into SheetFlow and also available as a standalone CLI t
 
 ## Project Structure
 
-- `sheetflow-app` – Main web application (Vaadin + Spring Boot)
+- `com.sheetflow` – Main web application (Vaadin + Spring Boot)
 - `tablelogic-core` – DSL engine (comparison logic, rule evaluation)
 - `tablelogic-cli` – Standalone CLI wrapper for `tablelogic-core`
 - `sheetflow-db` – PostgreSQL schema and migration scripts
