@@ -1,27 +1,50 @@
 # SheetFlow
 
-**SheetFlow** is a modular platform for comparing, analyzing, and transforming structured Excel files. Designed for technical and financial domains, it enables rule-based workflows for documents such as cost breakdown sheets, pricing tables, and technical evaluations.
+**SheetFlow** is a web-based platform for comparing and processing structurally similar Excel files.  
+It is built with Java, Spring Boot, and Vaadin, and supports multiple users, PostgreSQL integration, and Docker deployment.
+
+The core logic is handled by a custom domain-specific language (DSL) named **TableLogic**, which defines comparison and transformation rules for tabular data.  
+TableLogic is integrated into SheetFlow and also available as a standalone CLI tool.
 
 ---
 
-## 🔧 Architecture Overview
+## Project Structure
 
-The project is divided into three main components:
-
-- **🧠 TableLogic (Core)**  
-  The core engine responsible for structural analysis, comparison logic, and a domain-specific language (DSL) for defining rules
-
-- **🖥️ SheetFlow App (Web)**  
-  A modern Vaadin 24 + Spring Boot web application for managing users, projects, file uploads, and visualizing comparison results
-
-- **💻 TableLogic CLI**  
-  A command-line interface to run comparisons outside the GUI, e.g., for CI/CD or scripting scenarios
+- `sheetflow-app` – Main web application (Vaadin + Spring Boot)
+- `tablelogic-core` – DSL engine (comparison logic, rule evaluation)
+- `tablelogic-cli` – Standalone CLI wrapper for `tablelogic-core`
+- `sheetflow-db` – PostgreSQL schema and migration scripts
+- `docker/` – Docker setup for local and production use
 
 ---
 
-## 📁 Project Structure
-sheetflow/
-├── tablelogic-core/ # Core comparison logic, DSL, structural parsing
-├── tablelogic-cli/ # CLI tool for automated comparisons
-├── sheetflow-app/ # Web UI, user and project management
-└── README.md # This file
+## Key Features
+
+- Rule-based comparison of Excel files (with support for tolerances, mappings, conditions)
+- DSL definition of transformation and comparison logic (`TableLogic`)
+- Multi-user project structure
+- Storage of Excel data and files in PostgreSQL
+- CLI and WebApp support
+- Clean modular architecture (separation of logic, UI, storage)
+
+---
+
+## Technology Stack
+
+- Java 21
+- Spring Boot
+- Vaadin 24
+- PostgreSQL
+- Docker
+- Maven
+
+---
+
+## Getting Started
+
+To build and run locally:
+
+```bash
+git clone https://github.com/your-org/sheetflow.git
+cd sheetflow
+docker compose up --build
